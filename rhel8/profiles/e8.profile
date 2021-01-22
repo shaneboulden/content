@@ -20,6 +20,7 @@ description: |-
 selections:
 
   ### Remove obsolete packages
+  # 0384,0380
   - package_talk_removed
   - package_talk-server_removed
   - package_xinetd_removed
@@ -37,14 +38,18 @@ selections:
   - service_squid_disabled
 
   ### Software update
+  # 0303,1499
   - ensure_redhat_gpgkey_installed
   - ensure_gpgcheck_never_disabled
   - ensure_gpgcheck_local_packages
   - ensure_gpgcheck_globally_activated
+  # 0298,1498
   - security_patches_up_to_date
+  # 1497,1500
   - dnf-automatic_security_updates_only
 
   ### System security settings
+  # 1409
   - sysctl_kernel_randomize_va_space
   - sysctl_kernel_exec_shield
   - sysctl_kernel_kptr_restrict
@@ -55,6 +60,7 @@ selections:
   - sysctl_net_core_bpf_jit_harden
 
   ### SELinux
+  # 1409
   - var_selinux_state=enforcing
   - selinux_state
   - var_selinux_policy_name=targeted
@@ -74,6 +80,7 @@ selections:
   - file_ownership_library_dirs
 
   ### Passwords
+  # 1546
   - no_empty_passwords
 
   ### Partitioning
@@ -87,12 +94,14 @@ selections:
   - network_sniffer_disabled
 
   ### Admin privileges
+  # 1507,1508
   - accounts_no_uid_except_zero
   - sudo_remove_nopasswd
   - sudo_remove_no_authenticate
   - sudo_require_authentication
 
   ### Audit
+  # 0580,0582,0585,0584,1566,1509,1613
   - package_rsyslog_installed
   - service_rsyslog_enabled
   - service_auditd_enabled
@@ -126,6 +135,7 @@ selections:
   - audit_rules_kernel_module_loading
 
   ### Secure access
+  # 0484
   - sshd_disable_root_login
   - sshd_disable_gssapi_auth
   - sshd_print_last_log
@@ -137,13 +147,16 @@ selections:
   - sshd_enable_strictmodes
 
   # See also: https://www.cyber.gov.au/ism/guidelines-using-cryptography
+  # 0471,0472,0473,0476,0477,1054,1139,1374,1375,1162
   - var_system_crypto_policy=default_nosha1
   - configure_crypto_policy
   - configure_ssh_crypto_policy
 
   ### Application whitelisting
+  # 0955,14901392,0846,0957
   - package_fapolicyd_installed
   - service_fapolicyd_enabled
 
   ### Backup
+  # 1511,1512,1514,1515,1516
   - package_rear_installed
